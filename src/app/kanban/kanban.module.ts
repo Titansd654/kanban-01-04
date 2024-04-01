@@ -13,6 +13,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { TextFieldModule } from '@angular/cdk/text-field';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -23,6 +24,8 @@ import { reducers } from './store/reducers';
 import { EffectsModule } from '@ngrx/effects';
 import { KanbanEffects } from './store/effects';
 import { AddTaskComponent } from './components/add-task/add-task.component';
+import { CdkDrag, CdkDropList, CdkDropListGroup } from '@angular/cdk/drag-drop';
+import { UpdateTaskComponent } from './components/update-task/update-task.component'
 
 
 @NgModule({
@@ -33,6 +36,7 @@ import { AddTaskComponent } from './components/add-task/add-task.component';
     ColumnContentComponent,
     CardContentComponent,
     AddTaskComponent,
+    UpdateTaskComponent,
   ],
   imports: [
     CommonModule,
@@ -48,7 +52,11 @@ import { AddTaskComponent } from './components/add-task/add-task.component';
     MatInputModule,
     TextFieldModule,
     MatSelectModule,
+    MatCheckboxModule,
     ReactiveFormsModule,
+    CdkDropListGroup,
+    CdkDropList,
+    CdkDrag,
     StoreModule.forFeature('kanban', reducers),
     EffectsModule.forFeature([KanbanEffects]),
     
